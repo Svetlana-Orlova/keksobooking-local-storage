@@ -3,7 +3,7 @@
 const ROOMS_NOT_FOR_GUESTS = 100;
 const advertFormElement = document.querySelector(`.ad-form`);
 const filtersFormElement = document.querySelector(`.map__filters`);
-const avatarInputElement = advertFormElement.querySelector(`#avatar`);
+// const avatarInputElement = advertFormElement.querySelector(`#avatar`);
 const titleInputElement = advertFormElement.querySelector(`#title`);
 const addressInputElement = advertFormElement.querySelector(`#address`);
 const roomQuantityElement = advertFormElement.querySelector(`#room_number`);
@@ -46,7 +46,7 @@ const getNewData = () => {
   const coordOfAddress = addressInputElement.value.split(`,`);
   let obj = {
     "author": {
-      "avatar": `img/avatars/user02.png`
+      "avatar": `img/avatars/user03.png`
     },
     "offer": {
       "title": titleInputElement.value,
@@ -59,8 +59,11 @@ const getNewData = () => {
       "checkout": checkOutFieldElement.value,
       "features": arrayOfFeatures,
       "description": descriptionElement.value,
-      "photos": [`https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/01488611-c1f9-4854-ad67-9f0ad3e857e6.jpeg`,
-      `https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/d976dd4b-2a7e-415a-a2a2-afc51caf8006.jpeg`]
+      "photos": [`https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/5a29d708-9396-40bf-b002-92c5fdeb5c90.jpeg`,
+        `https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/23e332cb-1379-4582-85ac-901d6c441635.jpeg`,
+        `https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/1c859bbf-61d6-4295-b463-c1d0cbf62592.jpeg`,
+        `https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/f5e66549-1940-4659-b27a-652f5c809231.jpeg`,
+        `https://cdn.ostrovok.ru/t/x500/mec/hotels/11000000/10360000/10357700/10357605/10357605_30_b.jpg`]
     },
     "location": {
       "x": coordOfAddress[0],

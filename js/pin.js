@@ -65,7 +65,7 @@ const removePins = () => {
   });
 };
 
-let adverts = [];
+// let adverts = [];
 
 // const successLoadHandler = (jsonData) => {
 //   adverts = jsonData;
@@ -85,7 +85,7 @@ const updatePins = () => {
   removePins();
   window.card.close();
 
-  const filteredAds = window.filter.doOffers(adverts);
+  const filteredAds = window.filter.doOffers(window.locStore.data);
 
   insertPins(filteredAds);
 };

@@ -24,37 +24,7 @@ const OFFER_TYPES = {
   }
 };
 
-const onPrimaryMouseButtonPress = (evt, action) => {
-  if (evt.button === PRIMARY_MOUSE_BUTTON) {
-    action();
-  }
-};
-
-const onEscPress = (evt, action) => {
-  if (evt.key === `Escape`) {
-    action();
-  }
-};
-
-const onEnterPress = (evt, action) => {
-  if (evt.key === `Enter`) {
-    action();
-  }
-};
-
-window.util = {
-  offerTypes: OFFER_TYPES,
-  onPrimaryMouseButtonPress,
-  onEscPress,
-  onEnterPress
-};
-
-})();
-
-(() => {
-
-
-let dataLocStore = [{
+const AD_FIRST = {
   "author": {
     "avatar": `img/avatars/user01.png`
   },
@@ -87,11 +57,12 @@ let dataLocStore = [{
     ]
   },
   "location": {
-    "x": 428,
+    "x": 427,
     "y": 493
   }
-},
-{
+};
+
+const AD_SECOND = {
   "author": {
     "avatar": `img/avatars/user02.png`
   },
@@ -118,28 +89,76 @@ let dataLocStore = [{
     "x": 471,
     "y": 545
   }
+};
+
+const onPrimaryMouseButtonPress = (evt, action) => {
+  if (evt.button === PRIMARY_MOUSE_BUTTON) {
+    action();
+  }
+};
+
+const onEscPress = (evt, action) => {
+  if (evt.key === `Escape`) {
+    action();
+  }
+};
+
+const onEnterPress = (evt, action) => {
+  if (evt.key === `Enter`) {
+    action();
+  }
+};
+
+window.util = {
+  offerTypes: OFFER_TYPES,
+  ad1: AD_SECOND,
+  ad2: AD_FIRST,
+  onPrimaryMouseButtonPress,
+  onEscPress,
+  onEnterPress
+};
+
+})();
+
+(() => {
+
+
+let dataOfLocalStorage = [window.util.ad1, window.util.ad2];
+// let isStorageSupport = true;
+let storage = ``;
+let store = ``;
+
+try {
+  storage = localStorage.getItem(`keksobooking_local_data`);
+} catch (err) {
+  // isStorageSupport = false;
 }
-];
 
-let JSONarray = JSON.stringify(dataLocStore);
-localStorage.setItem(`a`, JSONarray);
-let store = JSON.parse(localStorage[`a`]);
-
-const uploadData = (ad) => {
-  dataLocStore.push(ad);
-  let JSONarray2 = JSON.stringify(dataLocStore);
-  localStorage.setItem(`a`, JSONarray2);
-  store = JSON.parse(localStorage[`a`]);
+const loadData = () => {
+  if (storage) {
+    store = JSON.parse(localStorage[`keksobooking_local_data`]);
+  } else {
+    let JSONarray = JSON.stringify(dataOfLocalStorage);
+    localStorage.setItem(`keksobooking_local_data`, JSONarray);
+    store = JSON.parse(localStorage[`keksobooking_local_data`]);
+  }
   return store;
 };
 
-const loadData = () => {
+const uploadData = (ad) => {
+  store = JSON.parse(localStorage[`keksobooking_local_data`]);
+  store.push(ad);
+  let jsonArrayOfAds = JSON.stringify(store);
+  localStorage.setItem(`keksobooking_local_data`, jsonArrayOfAds);
+  store = JSON.parse(localStorage[`keksobooking_local_data`]);
+  dataOfLocalStorage = store;
   return store;
 };
 
 window.locStore = {
   loadData,
-  uploadData
+  uploadData,
+  data: dataOfLocalStorage
 };
 
 })();
@@ -703,7 +722,7 @@ const removePins = () => {
   });
 };
 
-let adverts = [];
+// let adverts = [];
 
 // const successLoadHandler = (jsonData) => {
 //   adverts = jsonData;
@@ -723,7 +742,7 @@ const updatePins = () => {
   removePins();
   window.card.close();
 
-  const filteredAds = window.filter.doOffers(adverts);
+  const filteredAds = window.filter.doOffers(window.locStore.data);
 
   insertPins(filteredAds);
 };
@@ -745,7 +764,7 @@ window.pin = {
 const ROOMS_NOT_FOR_GUESTS = 100;
 const advertFormElement = document.querySelector(`.ad-form`);
 const filtersFormElement = document.querySelector(`.map__filters`);
-const avatarInputElement = advertFormElement.querySelector(`#avatar`);
+// const avatarInputElement = advertFormElement.querySelector(`#avatar`);
 const titleInputElement = advertFormElement.querySelector(`#title`);
 const addressInputElement = advertFormElement.querySelector(`#address`);
 const roomQuantityElement = advertFormElement.querySelector(`#room_number`);
@@ -788,7 +807,7 @@ const getNewData = () => {
   const coordOfAddress = addressInputElement.value.split(`,`);
   let obj = {
     "author": {
-      "avatar": `img/avatars/user02.png`
+      "avatar": `img/avatars/user03.png`
     },
     "offer": {
       "title": titleInputElement.value,
@@ -801,8 +820,11 @@ const getNewData = () => {
       "checkout": checkOutFieldElement.value,
       "features": arrayOfFeatures,
       "description": descriptionElement.value,
-      "photos": [`https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/01488611-c1f9-4854-ad67-9f0ad3e857e6.jpeg`,
-      `https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/d976dd4b-2a7e-415a-a2a2-afc51caf8006.jpeg`]
+      "photos": [`https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/5a29d708-9396-40bf-b002-92c5fdeb5c90.jpeg`,
+        `https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/23e332cb-1379-4582-85ac-901d6c441635.jpeg`,
+        `https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/1c859bbf-61d6-4295-b463-c1d0cbf62592.jpeg`,
+        `https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/f5e66549-1940-4659-b27a-652f5c809231.jpeg`,
+        `https://cdn.ostrovok.ru/t/x500/mec/hotels/11000000/10360000/10357700/10357605/10357605_30_b.jpg`]
     },
     "location": {
       "x": coordOfAddress[0],
