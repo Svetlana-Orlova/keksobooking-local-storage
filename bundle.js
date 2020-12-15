@@ -24,72 +24,74 @@ const OFFER_TYPES = {
   }
 };
 
-const AD_FIRST = {
-  "author": {
-    "avatar": `img/avatars/user01.png`
+const ADS = [
+  {
+    "author": {
+      "avatar": `img/avatars/user01.png`
+    },
+    "offer": {
+      "title": `Уютное гнездышко для молодоженов`,
+      "address": `102-0082 Tōkyō-to, Chiyoda-ku, Ichibanchō, 14−3`,
+      "price": 42000,
+      "type": `house`,
+      "rooms": 3,
+      "guests": 6,
+      "checkin": `14:00`,
+      "checkout": `10:00`,
+      "features": [
+        `wifi`,
+        `dishwasher`,
+        `parking`,
+        `washer`,
+        `elevator`,
+        `conditioner`
+      ],
+      "description": `Великолепный таун-хауз в центре Токио. Подходит как туристам, так и бизнесменам. Дом полностью укомплектован и имеет свежий ремонт.`,
+      "photos": [
+        `https://cdn.ostrovok.ru/t/x500/mec/hotels/11000000/10360000/10357700/10357605/10357605_25_b.jpg`,
+        `https://cdn.ostrovok.ru/t/x500/mec/hotels/11000000/10360000/10357700/10357605/10357605_27_b.jpg`,
+        `https://cdn.ostrovok.ru/t/x500/mec/hotels/11000000/10360000/10357700/10357605/10357605_17_b.jpg`,
+        `https://cdn.ostrovok.ru/t/x500/mec/hotels/11000000/10360000/10357700/10357605/10357605_30_b.jpg`,
+        `https://cdn.ostrovok.ru/t/x500/mec/hotels/10000000/9160000/9151200/9151174/9151174_1_b.jpg`,
+        `https://cdn.ostrovok.ru/t/x500/mec/hotels/10000000/9160000/9151200/9151174/9151174_12_b.jpg`,
+        `https://cdn.ostrovok.ru/t/x500/mec/hotels/10000000/9160000/9151200/9151174/9151174_5_b.jpg`
+      ]
+    },
+    "location": {
+      "x": 427,
+      "y": 493
+    }
   },
-  "offer": {
-    "title": `Уютное гнездышко для молодоженов`,
-    "address": `102-0082 Tōkyō-to, Chiyoda-ku, Ichibanchō, 14−3`,
-    "price": 42000,
-    "type": `house`,
-    "rooms": 3,
-    "guests": 6,
-    "checkin": `14:00`,
-    "checkout": `10:00`,
-    "features": [
-      `wifi`,
-      `dishwasher`,
-      `parking`,
-      `washer`,
-      `elevator`,
-      `conditioner`
-    ],
-    "description": `Великолепный таун-хауз в центре Токио. Подходит как туристам, так и бизнесменам. Дом полностью укомплектован и имеет свежий ремонт.`,
-    "photos": [
-      `https://cdn.ostrovok.ru/t/x500/mec/hotels/11000000/10360000/10357700/10357605/10357605_25_b.jpg`,
-      `https://cdn.ostrovok.ru/t/x500/mec/hotels/11000000/10360000/10357700/10357605/10357605_27_b.jpg`,
-      `https://cdn.ostrovok.ru/t/x500/mec/hotels/11000000/10360000/10357700/10357605/10357605_17_b.jpg`,
-      `https://cdn.ostrovok.ru/t/x500/mec/hotels/11000000/10360000/10357700/10357605/10357605_30_b.jpg`,
-      `https://cdn.ostrovok.ru/t/x500/mec/hotels/10000000/9160000/9151200/9151174/9151174_1_b.jpg`,
-      `https://cdn.ostrovok.ru/t/x500/mec/hotels/10000000/9160000/9151200/9151174/9151174_12_b.jpg`,
-      `https://cdn.ostrovok.ru/t/x500/mec/hotels/10000000/9160000/9151200/9151174/9151174_5_b.jpg`
-    ]
-  },
-  "location": {
-    "x": 427,
-    "y": 493
-  }
-};
 
-const AD_SECOND = {
-  "author": {
-    "avatar": `img/avatars/user02.png`
-  },
-  "offer": {
-    "title": `Маленькая квартирка рядом с парком`,
-    "address": `102-0075 Tōkyō-to, Chiyoda-ku, Sanbanchō`,
-    "price": 30000,
-    "type": `flat`,
-    "rooms": 1,
-    "guests": 1,
-    "checkin": `9:00`,
-    "checkout": `7:00`,
-    "features": [
-      `elevator`,
-      `conditioner`
-    ],
-    "description": `Маленькая чистая квратира на краю парка. Без интернета, регистрации и СМС.`,
-    "photos": [
-      `https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/01488611-c1f9-4854-ad67-9f0ad3e857e6.jpeg`,
-      `https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/d976dd4b-2a7e-415a-a2a2-afc51caf8006.jpeg`
-    ]
-  },
-  "location": {
-    "x": 471,
-    "y": 545
+  {
+    "author": {
+      "avatar": `img/avatars/user02.png`
+    },
+    "offer": {
+      "title": `Маленькая квартирка рядом с парком`,
+      "address": `102-0075 Tōkyō-to, Chiyoda-ku, Sanbanchō`,
+      "price": 30000,
+      "type": `flat`,
+      "rooms": 1,
+      "guests": 1,
+      "checkin": `9:00`,
+      "checkout": `7:00`,
+      "features": [
+        `elevator`,
+        `conditioner`
+      ],
+      "description": `Маленькая чистая квратира на краю парка. Без интернета, регистрации и СМС.`,
+      "photos": [
+        `https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/01488611-c1f9-4854-ad67-9f0ad3e857e6.jpeg`,
+        `https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/d976dd4b-2a7e-415a-a2a2-afc51caf8006.jpeg`
+      ]
+    },
+    "location": {
+      "x": 471,
+      "y": 545
+    }
   }
-};
+];
 
 const onPrimaryMouseButtonPress = (evt, action) => {
   if (evt.button === PRIMARY_MOUSE_BUTTON) {
@@ -111,8 +113,7 @@ const onEnterPress = (evt, action) => {
 
 window.util = {
   offerTypes: OFFER_TYPES,
-  ad1: AD_SECOND,
-  ad2: AD_FIRST,
+  ADS,
   onPrimaryMouseButtonPress,
   onEscPress,
   onEnterPress
@@ -123,17 +124,19 @@ window.util = {
 (() => {
 
 
-let dataOfLocalStorage = [window.util.ad1, window.util.ad2];
-let storage = ``;
-let store = ``;
-
-try {
-  storage = localStorage.getItem(`keksobooking_local_data`);
-} catch (err) {
-}
+let dataOfLocalStorage = window.util.ADS;
+let store = [];
 
 const loadData = () => {
-  if (storage) {
+  let storageEmpty = true;
+  try {
+    if (localStorage.getItem(`keksobooking_local_data`) !== null) {
+      storageEmpty = false;
+    }
+  } catch (err) {
+    storageEmpty = true;
+  }
+  if (!storageEmpty) {
     store = JSON.parse(localStorage[`keksobooking_local_data`]);
   } else {
     let jsonArray = JSON.stringify(dataOfLocalStorage);
@@ -149,14 +152,12 @@ const uploadData = (ad) => {
   let jsonArrayOfAds = JSON.stringify(store);
   localStorage.setItem(`keksobooking_local_data`, jsonArrayOfAds);
   store = JSON.parse(localStorage[`keksobooking_local_data`]);
-  dataOfLocalStorage = store;
   return store;
 };
 
 window.locStore = {
   loadData,
-  uploadData,
-  data: dataOfLocalStorage
+  uploadData
 };
 
 })();
@@ -658,7 +659,6 @@ window.filter = {
 const MAX_PINS = 5;
 const pinTemplateElement = document.querySelector(`#pin`).content.querySelector(`.map__pin`);
 const containerPinTemplateElement = document.querySelector(`.map__pins`);
-// const fieldsetElements = document.querySelectorAll(`fieldset`);
 const filtersElement = document.querySelector(`.map__filters`);
 
 const getPin = (ad) => {
@@ -720,18 +720,6 @@ const removePins = () => {
   });
 };
 
-// let adverts = [];
-
-// const successLoadHandler = (jsonData) => {
-//   adverts = jsonData;
-
-//   if (jsonData.length > 0) {
-//     window.form.enableItems(fieldsetElements);
-//   }
-
-//   updatePins();
-// };
-
 const showMapPins = () => {
   insertPins(window.locStore.loadData());
 };
@@ -740,7 +728,7 @@ const updatePins = () => {
   removePins();
   window.card.close();
 
-  const filteredAds = window.filter.doOffers(window.locStore.data);
+  const filteredAds = window.filter.doOffers(window.locStore.loadData());
 
   insertPins(filteredAds);
 };
@@ -762,7 +750,7 @@ window.pin = {
 const ROOMS_NOT_FOR_GUESTS = 100;
 const advertFormElement = document.querySelector(`.ad-form`);
 const filtersFormElement = document.querySelector(`.map__filters`);
-// const avatarInputElement = advertFormElement.querySelector(`#avatar`);
+// const avatarInputElement = advertFormElement.querySelector(`#avatar`); Нужно будет при донастройке загружаемой аватарки
 const titleInputElement = advertFormElement.querySelector(`#title`);
 const addressInputElement = advertFormElement.querySelector(`#address`);
 const roomQuantityElement = advertFormElement.querySelector(`#room_number`);
@@ -789,9 +777,8 @@ imageElement.onchange = () => {
   return arrayOfPhoto;
 };
 
-let arrayOfFeatures = [];
-
 buttonSubmitElement.onclick = () => {
+  let arrayOfFeatures = [];
   const inp = advertFormElement.querySelectorAll(`.feature__checkbox`);
   for (let i = 0; i < inp.length; i++) {
     if (inp[i].checked) {
@@ -799,6 +786,7 @@ buttonSubmitElement.onclick = () => {
     }
   }
   arrayOfFeatures.join(`,`);
+  return arrayOfFeatures;
 };
 
 const getNewData = () => {
@@ -816,7 +804,7 @@ const getNewData = () => {
       "guests": guestQuantityElement.value,
       "checkin": checkInFieldElement.value,
       "checkout": checkOutFieldElement.value,
-      "features": arrayOfFeatures,
+      "features": buttonSubmitElement.onclick(),
       "description": descriptionElement.value,
       "photos": [`https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/5a29d708-9396-40bf-b002-92c5fdeb5c90.jpeg`,
         `https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/23e332cb-1379-4582-85ac-901d6c441635.jpeg`,
@@ -893,15 +881,10 @@ const onSuccess = () => {
   window.main.deactivatePage();
 };
 
-// const onError = () => {
-//   window.message.error();
-// };
-
 const onFormSubmit = (evt) => {
   evt.preventDefault();
-  window.pin.insert(window.locStore.uploadData(getNewData()));
+  window.locStore.uploadData(getNewData());
   onSuccess();
-  // window.server.upload(new FormData(advertFormElement), onSuccess, onError);
   window.scrollTo(0, 0);
 };
 

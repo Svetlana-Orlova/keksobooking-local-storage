@@ -1,16 +1,18 @@
 'use strict';
 
-let dataOfLocalStorage = [window.util.ad1, window.util.ad2];
-let storage = ``;
-let store = ``;
-
-try {
-  storage = localStorage.getItem(`keksobooking_local_data`);
-} catch (err) {
-}
+let dataOfLocalStorage = window.util.ADS;
+let store = [];
 
 const loadData = () => {
-  if (storage) {
+  let storageEmpty = true;
+  try {
+    if (localStorage.getItem(`keksobooking_local_data`) !== null) {
+      storageEmpty = false;
+    }
+  } catch (err) {
+    storageEmpty = true;
+  }
+  if (!storageEmpty) {
     store = JSON.parse(localStorage[`keksobooking_local_data`]);
   } else {
     let jsonArray = JSON.stringify(dataOfLocalStorage);
@@ -26,12 +28,10 @@ const uploadData = (ad) => {
   let jsonArrayOfAds = JSON.stringify(store);
   localStorage.setItem(`keksobooking_local_data`, jsonArrayOfAds);
   store = JSON.parse(localStorage[`keksobooking_local_data`]);
-  dataOfLocalStorage = store;
   return store;
 };
 
 window.locStore = {
   loadData,
-  uploadData,
-  data: dataOfLocalStorage
+  uploadData
 };

@@ -3,7 +3,7 @@
 const ROOMS_NOT_FOR_GUESTS = 100;
 const advertFormElement = document.querySelector(`.ad-form`);
 const filtersFormElement = document.querySelector(`.map__filters`);
-// const avatarInputElement = advertFormElement.querySelector(`#avatar`);
+// const avatarInputElement = advertFormElement.querySelector(`#avatar`); Нужно будет при донастройке загружаемой аватарки
 const titleInputElement = advertFormElement.querySelector(`#title`);
 const addressInputElement = advertFormElement.querySelector(`#address`);
 const roomQuantityElement = advertFormElement.querySelector(`#room_number`);
@@ -30,9 +30,8 @@ imageElement.onchange = () => {
   return arrayOfPhoto;
 };
 
-let arrayOfFeatures = [];
-
 buttonSubmitElement.onclick = () => {
+  let arrayOfFeatures = [];
   const inp = advertFormElement.querySelectorAll(`.feature__checkbox`);
   for (let i = 0; i < inp.length; i++) {
     if (inp[i].checked) {
@@ -40,6 +39,7 @@ buttonSubmitElement.onclick = () => {
     }
   }
   arrayOfFeatures.join(`,`);
+  return arrayOfFeatures;
 };
 
 const getNewData = () => {
@@ -57,7 +57,7 @@ const getNewData = () => {
       "guests": guestQuantityElement.value,
       "checkin": checkInFieldElement.value,
       "checkout": checkOutFieldElement.value,
-      "features": arrayOfFeatures,
+      "features": buttonSubmitElement.onclick(),
       "description": descriptionElement.value,
       "photos": [`https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/5a29d708-9396-40bf-b002-92c5fdeb5c90.jpeg`,
         `https://cdn.ostrovok.ru/t/x500/carsolize/images/hotels/23e332cb-1379-4582-85ac-901d6c441635.jpeg`,
@@ -134,15 +134,10 @@ const onSuccess = () => {
   window.main.deactivatePage();
 };
 
-// const onError = () => {
-//   window.message.error();
-// };
-
 const onFormSubmit = (evt) => {
   evt.preventDefault();
-  window.pin.insert(window.locStore.uploadData(getNewData()));
+  window.locStore.uploadData(getNewData());
   onSuccess();
-  // window.server.upload(new FormData(advertFormElement), onSuccess, onError);
   window.scrollTo(0, 0);
 };
 

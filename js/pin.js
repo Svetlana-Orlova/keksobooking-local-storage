@@ -3,7 +3,6 @@
 const MAX_PINS = 5;
 const pinTemplateElement = document.querySelector(`#pin`).content.querySelector(`.map__pin`);
 const containerPinTemplateElement = document.querySelector(`.map__pins`);
-// const fieldsetElements = document.querySelectorAll(`fieldset`);
 const filtersElement = document.querySelector(`.map__filters`);
 
 const getPin = (ad) => {
@@ -65,18 +64,6 @@ const removePins = () => {
   });
 };
 
-// let adverts = [];
-
-// const successLoadHandler = (jsonData) => {
-//   adverts = jsonData;
-
-//   if (jsonData.length > 0) {
-//     window.form.enableItems(fieldsetElements);
-//   }
-
-//   updatePins();
-// };
-
 const showMapPins = () => {
   insertPins(window.locStore.loadData());
 };
@@ -85,7 +72,7 @@ const updatePins = () => {
   removePins();
   window.card.close();
 
-  const filteredAds = window.filter.doOffers(window.locStore.data);
+  const filteredAds = window.filter.doOffers(window.locStore.loadData());
 
   insertPins(filteredAds);
 };
