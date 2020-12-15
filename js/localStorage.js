@@ -1,22 +1,20 @@
 'use strict';
 
 let dataOfLocalStorage = [window.util.ad1, window.util.ad2];
-// let isStorageSupport = true;
 let storage = ``;
 let store = ``;
 
 try {
   storage = localStorage.getItem(`keksobooking_local_data`);
 } catch (err) {
-  // isStorageSupport = false;
 }
 
 const loadData = () => {
   if (storage) {
     store = JSON.parse(localStorage[`keksobooking_local_data`]);
   } else {
-    let JSONarray = JSON.stringify(dataOfLocalStorage);
-    localStorage.setItem(`keksobooking_local_data`, JSONarray);
+    let jsonArray = JSON.stringify(dataOfLocalStorage);
+    localStorage.setItem(`keksobooking_local_data`, jsonArray);
     store = JSON.parse(localStorage[`keksobooking_local_data`]);
   }
   return store;
